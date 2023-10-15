@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  php:
+    build: ./images/php
+    volumes:
+      - /www:/var/www
+    depends_on: 
+      - postgres
+
+  nginx: 
+    image: nginx:stable-alpine
+    volumes:
+      - ./public/:/var/www/public
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - 80:80
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
+
+  postgres:
+    image: postgres:16.0-alpine
+    restart: "always"
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-root}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-postgres} 
+    ports:
+      - 5432:5432
+    
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
