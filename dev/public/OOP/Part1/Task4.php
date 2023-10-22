@@ -7,8 +7,8 @@ interface calculateSquare
 
 class Rectangle 
 {
-    private $x;
-    private $y;
+    private float $x;
+    private float $y;
 
     public function __construct(float $x, float $y)
     {
@@ -24,7 +24,7 @@ class Rectangle
 
 class Square implements calculateSquare
 {
-    private $x;
+    private float $x;
 
     public function __construct(float $x)
     {
@@ -40,7 +40,7 @@ class Square implements calculateSquare
 class Circle implements calculateSquare
 {
     const PI = 3.1416;
-    private $r;
+    private float $r;
 
     public function __construct(float $r)
     {

@@ -2,7 +2,7 @@
 
 class A 
 {
-    public static function test(int $x)
+    public static function test(int $x): float
     {
         return 'x = ' . $x;
     }
@@ -14,8 +14,8 @@ echo '<br>';
 
 class User
 {
-    private $role;
-    private $name;
+    private string $role;
+    private string $name;
 
     public function __construct(string $role, string $name)
     {
@@ -55,14 +55,14 @@ echo '<br>';
 
 class Human
 {
-    private static $count;
+    private static int $count;
 
     public function __construct()
     {
         self::$count++;
     }
 
-    public static function getCount()
+    public static function getCount(): int
     {
         return self::$count;
     }

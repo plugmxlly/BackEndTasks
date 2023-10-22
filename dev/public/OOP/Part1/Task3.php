@@ -2,8 +2,8 @@
 
 class Post
 {
-    private $title;
-    private $text;
+    private string $title;
+    private string $text;
 
     public function __construct(string $title, string $text)
     {
@@ -11,7 +11,7 @@ class Post
         $this->$text = $text;
     }
 
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -21,7 +21,7 @@ class Post
         $this->title = $title;
     }
 
-    public function getText()
+    public function getText(): string
     {
         return $this->text;
     }
@@ -34,7 +34,7 @@ class Post
 
 class Lesson extends Post
 {
-    private $homework;
+    private string $homework;
 
     public function __construct(string $title, string $text, string $homework)
     {
@@ -60,7 +60,7 @@ echo '<br>';
 
 class PaidLesson extends Lesson
 {
-    private $price;
+    private float $price;
 
     public function __construct(string $title, string $text, string $homework, float $price)
     {

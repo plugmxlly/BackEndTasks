@@ -2,9 +2,9 @@
 
 class Cat2
 {
-    private $name;
-    private $color;
-    public $weight;
+    private string $name;
+    private string $color;
+    public float $weight;
 
     public function __construct(string $name, string $color)
     {
@@ -12,12 +12,12 @@ class Cat2
         $this->color = $color;
     }
 
-    public function sayHello()
+    public function sayHello(): void
     {
         echo 'Привет! Меня зовут ' . $this->name . ', Мой цвет: ' . $this->color;
     }
 
-    public function setName(string $name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -32,7 +32,7 @@ class Cat2
         return $this->color;
     }
 
-    public function setColor(string $color)
+    public function setColor(string $color): void
     {
  
        $this->color = $color;

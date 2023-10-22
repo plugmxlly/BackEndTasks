@@ -2,9 +2,9 @@
 
 abstract class AbstractClass
 {
-    abstract public function getValue();
+    abstract public function getValue(): string;
 
-    public function printValue()
+    public function printValue(): void
     {
         echo 'Значение: ' . $this->getValue();
     }
@@ -12,14 +12,14 @@ abstract class AbstractClass
 
 class ClassA extends AbstractClass
 {
-    private $value;
+    private string $value;
 
     public function __construct(string $value)
     {
         $this->value = $value;
     }
 
-    public function getValue()
+    public function getValue(): string
     {
         return $this->value;
     }
@@ -34,7 +34,7 @@ echo '<br>';
 
 abstract class HumanAbstract
 {
-    private $name;
+    private string $name;
 
     public function __construct(string $name)
     {

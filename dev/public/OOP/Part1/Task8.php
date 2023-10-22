@@ -2,7 +2,7 @@
 
 class User
 {
-    private $name;
+    private string $name;
 
     public function __construct(string $name)
     {
@@ -17,7 +17,7 @@ class User
 
 class Cat
 {
-    private $name;
+    private string $name;
 
     public function __construct(string $name)
     {
@@ -32,9 +32,9 @@ class Cat
 
 class Article
 {
-    private $title;
-    private $text;
-    private $author;
+    private string $title;
+    private string $text;
+    private User $author;
 
     public function __construct(string $title, string $text, User $author)
     {

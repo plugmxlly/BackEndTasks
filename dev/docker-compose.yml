@@ -4,14 +4,14 @@ services:
   php:
     build: ./images/php
     volumes:
-      - ./public:/var/www/html
+      - ./public/OOP/Part2:/var/www/html
     depends_on: 
       - postgres
 
   nginx: 
     image: nginx:stable-alpine
     volumes:
-      - ./public:/var/www/html
+      - ./public/OOP/Part2:/var/www/html
       - ./nginx/conf.d/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
       - ${NGINX_PORT:-80:80}
