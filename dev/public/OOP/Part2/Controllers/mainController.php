@@ -2,28 +2,29 @@
 
 namespace Controllers;
 
+use Services\Db;
 use View\View;
 
 class MainController
 {
-    private $view;
+    private view $view;
 
+    private db $db;
     public function __construct()
     {
         $this->view = new View(__DIR__ . '/../Templates');
+        $this->db = new Db();
     }
 
     public function main()
     {
-        $articles = [
-            ['name' => 'Статья 1', 'text' => 'Текст статьи 1'],
-            ['name' => 'Статья 2', 'text' => 'Текст статьи 2'],
-        ];
+        $articles = $this->db->query('SELECT * FROM "articles";');
         $this->view->renderHtml('Main/main.php', ['articles' => $articles]);
     }
 
+
     public function sayHello(string $name)
     {
-        $this->view->renderHtml('Main/hello.php', ['name' => $name]);
+        $this->view->renderHtml('Main/hello.php', ['article_name' => $name]);
     }
 }
